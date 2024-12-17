@@ -1,0 +1,118 @@
+footer {
+    padding: 0;
+    background-color: $bg-gray-lot;
+
+    .wrapper {
+        display: grid;
+        gap: 30px;
+
+        padding: 40px 0;
+        .main-col {
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                text-decoration: none;
+                svg path {
+                    fill: #0090f7;
+                }
+                .text {
+                    font-weight: 700;
+                    font-size: 2rem;
+                    @include textBackground();
+                    // background-image: $bg-gradient;
+                    // -webkit-background-clip: text;
+                    // background-clip: text;
+                    // -webkit-text-fill-color: transparent;
+                }
+            }
+
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 7px;
+                padding: 0;
+                margin-top: 20px;
+                li {
+                    list-style-type: none;
+                    background-color: $bg-gray-dam;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    &:hover {
+                        background-color: $bg-gray-dark;
+                    }
+                    img {
+                        width: 36px;
+                    }
+                }
+            }
+        }
+
+        .col {
+            h3 {
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+
+            a,
+            p {
+                text-decoration: none;
+                color: $tx-gray-dark;
+                display: block;
+                margin-top: 7px;
+                margin-bottom: 0;
+                &:hover {
+                    color: $blue;
+                }
+
+                &.phone,
+                &.email {
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        background-color: $bg-dark;
+        padding: 20px 0;
+        .bottom-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            ul > li > a {
+                color: #fff;
+                &:hover {
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    @include responsive(md) {
+        .wrapper {
+            grid-template-columns: repeat(3, 1fr);
+            .main-col {
+                grid-column: 1/4;
+            }
+        }
+    }
+
+    @include responsive(lg) {
+        .wrapper {
+            grid-template-columns: repeat(5, 1fr);
+
+            .main-col {
+                grid-column: 1/3;
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+/*
+    //Bootstrap breakpoint
+    sm      ≥ 576px
+    md  	≥ 768px
+    lg  	≥ 992px
+    xl  	≥ 1200px
+    2xl 	≥ 1400px
+*/
+@import "./variables";
+@import "./mixin";
+@import "./reset";
+
+@import "./header";
+@import "./banner";
+@import "./filter";
+@import "./product";
+@import "./footer";
+@import "./cart";
+
+/* sm */
+@media only screen and (min-width: 640px) {
+}
+/* md */
+@media only screen and (min-width: 768px) {
+    // BROWSER SCROLL BAR
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-button {
+        width: 8px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgb(255, 255, 255);
+        border: thin solid rgb(238, 238, 238);
+        box-shadow: 0px 0px 3px #dfdfdf inset;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border: thin solid #ccc;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #7d7d7d;
+    }
+    // END BROWSER SCROLL BAR
+}
+/* lg */
+@media only screen and (min-width: 1024px) {
+}
+/* xl */
+@media only screen and (min-width: 1280px) {
+}
+/* 2xl */
+@media only screen and (min-width: 1536px) {
+}
+
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 100px;
+    background-color: $bg-dark;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $blue;
+    }
+}

@@ -1,0 +1,20 @@
+@mixin responsive($screen) {
+    @if (map-has-key($map: $breakpoints, $key: $screen)) {
+        $value: map-get(
+            $map: $breakpoints,
+            $key: $screen,
+        );
+        @media screen and (min-width: $value) {
+            @content;
+        }
+    } @else {
+        @warn "màn hình chưa khai báo";
+    }
+}
+
+@mixin textBackground() {
+    background-image: $bg-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

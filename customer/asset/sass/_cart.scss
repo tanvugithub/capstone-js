@@ -1,0 +1,26 @@
+.cart-modal {
+    .empty-text {
+        color: $red-color;
+    }
+    .btn-quantity {
+        border: none;
+        outline: none;
+        color: #fff;
+        background-color: $bg-gray-dark;
+        padding: 2px 5px;
+        font-weight: 700;
+        border-radius: 4px;
+        transition: all 0.3s;
+        &:hover {
+            background-color: $blue;
+        }
+    }
+
+    .input-quantity {
+        width: 60px;
+    }
+
+    .modal-title {
+        @include textBackground();
+    }
+}

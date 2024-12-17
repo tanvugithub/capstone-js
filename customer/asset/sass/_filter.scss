@@ -1,0 +1,72 @@
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $bg-blue-lot;
+    padding: 10px;
+    border-radius: 3px;
+    border-bottom: 1px solid $bd-gray;
+
+    h2 {
+        margin: 0;
+        font-weight: 700;
+        display: none;
+        @include textBackground();
+    }
+    @include responsive(md) {
+        h2 {
+            display: flex;
+        }
+    }
+    // SELECT
+    /* Custom Select wrapper */
+    .select {
+        position: relative;
+        display: flex;
+        width: 120px;
+        padding: 3px 0;
+        //height: 3em;
+        //border-radius: 0.25em;
+        //border-radius: var(--search-border-radius);
+        overflow: hidden;
+    }
+    /* Arrow */
+    .select::after {
+        font-size: 14px;
+        color: #0090f7;
+        content: "\25BC";
+        position: absolute;
+        top: -3px;
+        right: 0;
+        padding: 7px;
+        //background-color: #34495e;
+        transition: 0.25s all ease;
+        pointer-events: none;
+    }
+    /* Transition */
+    .select:hover::after {
+        color: #ba62fc;
+    }
+
+    select {
+        /* Reset Select */
+        appearance: none;
+        outline: none;
+        border: 0;
+        //border-bottom: 2px solid #0090f7;
+        box-shadow: none;
+
+        /* Personalize */
+        flex: 1;
+        padding: 0 1em;
+        color: #0090f7;
+        //background-color: var(--darkgray);
+        background: none;
+        background-image: none;
+        cursor: pointer;
+    }
+    /* Remove IE arrow */
+    select::-ms-expand {
+        display: none;
+    }
+}

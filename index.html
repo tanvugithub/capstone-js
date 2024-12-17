@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Capstone</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <!-- Google Inter Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="./customer/asset/css/main-style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand logo" href="#">
+                    <?xml version="1.0" encoding="iso-8859-1"?>
+                    <svg width="36px" height="36px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 27.442 27.442" xml:space="preserve">
+                        <g>
+                            <path d="M19.494,0H7.948C6.843,0,5.951,0.896,5.951,1.999v23.446c0,1.102,0.892,1.997,1.997,1.997h11.546
+                                    c1.103,0,1.997-0.895,1.997-1.997V1.999C21.491,0.896,20.597,0,19.494,0z M10.872,1.214h5.7c0.144,0,0.261,0.215,0.261,0.481
+                                    s-0.117,0.482-0.261,0.482h-5.7c-0.145,0-0.26-0.216-0.26-0.482C10.612,1.429,10.727,1.214,10.872,1.214z M13.722,25.469
+                                    c-0.703,0-1.275-0.572-1.275-1.276s0.572-1.274,1.275-1.274c0.701,0,1.273,0.57,1.273,1.274S14.423,25.469,13.722,25.469z
+                                     M19.995,21.1H7.448V3.373h12.547V21.1z" />
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                        </g>
+                    </svg>
+                    <span class="text">Phone Shop</span>
+                </a>
+                <!-- menu button hiển thị lg trở xuống < 992px -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <div class="mt-5 mt-lg-0 w-100 d-flex flex-column flex-lg-row justify-content-between">
+                        <div></div>
+
+                        <form id="searchForm">
+                            <div class="search">
+                                <input type="search" id="searchInput" placeholder="Ngập tràn giảm giá, tìm ngay!">
+                                <button class="btn-search" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+
+                        <ul class="mt-3 mt-lg-0 navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item cart">
+                                <a id="cart-icon" href="#" class="position-relative">
+                                    <i class="fa fa-cart-shopping"></i>
+                                    <span id="cart-count" class="count badge rounded-pill bg-danger">
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item admin-site-text">
+                                <span><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                                <a href="./admin/view/index.html">
+                                    Quản trị viên
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BANNER -->
+    <section class="banners">
+        <div class="banner main-banner">
+            <img src="./customer/asset/images/banner-1.png" />
+        </div>
+        <div class="banner">
+            <div class="caption">
+                <h2 class="white">Super sales</h2>
+                <h5 class="white">Best prices</h5>
+                <button>VIEW</button>
+            </div>
+            <img src="./customer/asset/images/banner-2.png" />
+        </div>
+        <div class="banner">
+            <div class="caption">
+                <h2 class="white">600+</h2>
+                <h5 class="white">Devices only for you</h5>
+                <button class="black">VIEW</button>
+            </div>
+            <img src="./customer/asset/images/banner-3.png" />
+        </div>
+    </section>
+
+    <!-- FILTER -->
+    <section class="mt-4">
+        <div class="container">
+            <div class="filter mt-4">
+                <div class="select">
+                    <select id="typeSel">
+                        <option value="" selected>Phân loại</option>
+                        <option value="">Tất cả</option>
+                        <option value="Iphone">Iphone</option>
+                        <option value="Samsung">Samsung</option>
+                    </select>
+                </div>
+                <h2>Hot hôm nay</h2>
+                <div class="select sort">
+                    <select id="sortSel">
+                        <option value="" selected>Sắp xếp</option>
+                        <option value="desc">Mặc định</option>
+                        <option value="desc">Mới</option>
+                        <option value="asc">Cũ</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="mt-4 products-wrapper">
+        <div class="container">
+            <div id="products" class="products"></div>
+            <ul class="pagination mt-4 d-none">
+                <li id="paginationDescription">Phân trang đang ẩn, sẽ hiển thị khi > 10 sản phẩm</li>
+                <li class="page-item"><a class="page-link" href="#" id="prevPage">
+                        << Trang trước </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#" id="nextPage">Trang sau >></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="mt-5">
+        <div class="container">
+            <div class="wrapper">
+                <div class="main-col">
+                    <a class="logo" href="#">
+                        <?xml version="1.0" encoding="iso-8859-1"?>
+                        <svg width="36px" height="36px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 27.442 27.442" xml:space="preserve">
+                            <g>
+                                <path d="M19.494,0H7.948C6.843,0,5.951,0.896,5.951,1.999v23.446c0,1.102,0.892,1.997,1.997,1.997h11.546
+                                        c1.103,0,1.997-0.895,1.997-1.997V1.999C21.491,0.896,20.597,0,19.494,0z M10.872,1.214h5.7c0.144,0,0.261,0.215,0.261,0.481
+                                        s-0.117,0.482-0.261,0.482h-5.7c-0.145,0-0.26-0.216-0.26-0.482C10.612,1.429,10.727,1.214,10.872,1.214z M13.722,25.469
+                                        c-0.703,0-1.275-0.572-1.275-1.276s0.572-1.274,1.275-1.274c0.701,0,1.273,0.57,1.273,1.274S14.423,25.469,13.722,25.469z
+                                         M19.995,21.1H7.448V3.373h12.547V21.1z" />
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                                <g></g>
+                            </g>
+                        </svg>
+                        <span class="text">Phone Shop</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <img src="./customer/asset/images/visa.png" />
+                        </li>
+                        <li>
+                            <img src="./customer/asset/images/card.png" />
+                        </li>
+                        <li>
+                            <img src="./customer/asset/images/mastercard.png" />
+                        </li>
+                        <li>
+                            <img src="./customer/asset/images/paypal.png" />
+                        </li>
+                        <li>
+                            <img src="./customer/asset/images/cache.png" />
+                        </li>
+                        <li>
+                            <img src="./customer/asset/images/bank-transfer.png" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>ABOUT US</h3>
+                    <a href="#">About the company</a>
+                    <a href="#">Career</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookies policy</a>
+                    <a href="#">Sell on Mobileshop</a>
+
+                </div>
+                <div class="col">
+                    <h3>ASSISTANCE</h3>
+                    <a href="#">How To Buy</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Payment Options</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Warranty</a>
+                    <a href="#">Cancelations & Returnings</a>
+                </div>
+                <div class="col">
+                    <h3>CONTACT</h3>
+                    <p>Call Center</p>
+                    <a class="phone" href="#">(+84) 908 000 111</a>
+
+                    <p class="mt-5">Email</p>
+                    <a class="email" href="#">support-shop@email.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="bottom-wrapper">
+                    <span class="copyright">Copyright © 2024. All rights served</span>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./admin/view/index.html">Admin</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="scroll-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"></path>
+        </svg>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade cart-modal" id="cartModal" tabindex="-1" aria-labelledby="cartModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header gap-2">
+                    <i class="fa fa-cart-shopping text-danger"></i>
+                    <h1 class="modal-title fs-5" id="title">
+                        Giỏ hàng của bạn
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover cartTable">
+                            <thead class="text-dark">
+                                <tr>
+                                    <th class="text-center">STT</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th class="text-center">Giá</th>
+                                    <th class="text-center">Số lượng</th>
+                                    <th>Tổng giá</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartsRenderWrapper">
+                                <tr>
+                                    <td colspan="6" class="empty-text">
+                                        Bạn chưa mua sản phẩm nào
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" id="checkout" class="btn btn-primary">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade cart-modal" id="cartSuccessModal" tabindex="-1" aria-labelledby="cartSuccessModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="title">Đặt hàng thành công</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> -->
+                <div class="modal-body" id="modal-body">
+                    <div class="text-success text-center">
+                        Chúc mừng, bạn đã đặt hàng thành công!
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thư viện hỗ trợ jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- Script Animate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script type="text/javascript">
+        wow = new WOW({
+            boxClass: 'wow',      // default
+            animateClass: 'animated', // default
+            offset: 0,          // default
+            mobile: false,       // default
+            live: true        // default
+        });
+        wow.init();
+    </script>
+
+    <script src="./customer/asset/js/moment.js"></script>
+
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+        integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="module" src="./customer/controller/main.js"></script>
+</body>
+
+</html>

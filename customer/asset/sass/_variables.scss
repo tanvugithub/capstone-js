@@ -1,0 +1,32 @@
+:root {
+    --font-primary: "Inter", sans-serif;
+    --color-red: #f2416b;
+}
+
+$red-color: #f2416b;
+$gray-color: #f1f1f1;
+
+$bd-gray: #e8e8e8;
+$bg-gray: rgba(22, 24, 35, 0.06);
+$bg-dark: rgba(22, 24, 35, 1);
+$bg-gray-dark: rgba(22, 24, 35, 0.3);
+$bg-gray-lot: rgba(22, 24, 35, 0.04);
+$bg-gray-dam: rgba(22, 24, 35, 0.09);
+$tx-gray: rgba(22, 24, 35, 0.34);
+$tx-gray-dark: rgba(22, 24, 35, 0.6);
+
+$bg-blue-lot: rgba(241, 248, 254, 1);
+$blue: #0090f7;
+$purple: #ba62fc;
+$red: #f2416b;
+
+$bg-gradient: linear-gradient(to right, #0090f7, #ba62fc, #f2416b);
+
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+);
