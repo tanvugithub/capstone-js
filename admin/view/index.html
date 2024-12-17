@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS Capstone Admin</title>
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Bootstrap 4 -->
+
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<link rel="stylesheet" href="../asset/css/bootstrap.min.css">
+
+	<!-- JQuery UI -->
+	<link rel="stylesheet" href="../asset/css/jquery-ui.min.css">
+
+	<!-- Animate -->
+	<!-- <link rel="stylesheet" href="css/animate.css"> -->
+
+	<!-- My CSS -->
+	<link rel="stylesheet" href="../asset/css/modal.css">
+
+	<link rel="stylesheet" href="../asset/css/style4.css">
+
+	<link rel="stylesheet" type="text/css" href="../asset/css/main.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<!-- Sidebar Holder -->
+		<nav id="sidebar">
+			<div class="sidebar-header">
+				<h3 class="text-2xl">Admin Site</h3>
+				<strong>BS</strong>
+			</div>
+			<ul class="list-unstyled components">
+				<li class="active">
+					<a href="#homeSubmenu">
+						<i class="fa fa-home"></i>
+						Products
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-briefcase"></i>
+						Orders
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Page Content Holder -->
+		<div id="content">
+
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+
+					<div class="navbar-header">
+						<button type="button" id="sidebarCollapse" class="btn btn-dark navbar-btn">
+							<i class="glyphicon glyphicon-align-left"></i>
+							<span>Toggle Sidebar</span>
+						</button>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#">Page</a></li>
+							<li><a href="#">Page</a></li>
+							<li><a href="#">Page</a></li>
+							<li><a href="#">Page</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+
+			<div class="">
+				<div class="card text-center">
+					<!-- Header -->
+					<div class="card-header myCardHeader">
+						<div class="row">
+							<div class="col-md-6 flex items-center">
+								<h3 class="text-left text-primary font-weight-bold">Danh sách sản phẩm</h3>
+							</div>
+							<div class="col-md-6 text-right">
+								<button class="btn btn-primary" id="btnInsert" data-toggle="modal"
+									data-target="#myModal">Thêm sản phẩm</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Body -->
+					<div class="card-body">
+						<div class="row mb-3">
+							<div class="col">
+								<div class="input-group flex gap-3">
+									<form id="searchForm">
+										<div class="flex">
+											<input type="text" class="form-control w-[320px]"
+												placeholder="Tìm lọc theo tên sản phẩm" id="searchInput">
+											<div class="input-group-prepend">
+												<button type="submit" class="input-group-text" id="btnSearch"><i
+														class="fa fa-search"></i></button>
+											</div>
+										</div>
+									</form>
+									<button id="resetSearch" class="btn btn-secondary">Reset table
+									</button>
+								</div>
+							</div>
+						</div>
+						<table class="table table-bordered table-responsive-lg table-hover myTable">
+							<thead class="text-dark">
+								<tr>
+									<th>Tên sản phẩm</th>
+									<th>Ảnh</th>
+									<th>
+										<div class="sortDiv block cursor-pointer" id="priceSort" data-sort-key="price"
+											title="Sắp xếp theo giá">
+											Giá
+											<i class="fa fa-arrow-up sortIconAsc" id="sortAsc"></i>
+											<i class="fa fa-arrow-down sortIconDesc" id="sortDesc"></i>
+										</div>
+									</th>
+									<th>Loại</th>
+									<th>
+										<div class="sortDiv block cursor-pointer" id="updatedAtSort"
+											data-sort-key="updatedAt" title="Sắp xếp theo ngày">
+											Ngày cập nhật
+											<i class="fa fa-arrow-up sortIconAsc"></i>
+											<i class="fa fa-arrow-down sortIconDesc"></i>
+										</div>
+									</th>
+									<th><em class="fa fa-cog"></em></th>
+								</tr>
+							</thead>
+							<tbody id="tableList">
+
+							</tbody>
+						</table>
+						<ul class="pagination">
+							<li id="paginationDescription">Phân trang đang ẩn, sẽ hiển thị khi > 10 sản phẩm</li>
+							<li class="page-item"><a class="page-link" href="#" id="prevPage">
+									Trang trước << </a>
+							</li>
+							<!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+							<li class="page-item active"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li> -->
+							<li class="page-item"><a class="page-link" href="#" id="nextPage">Trang sau >></a></li>
+						</ul>
+					</div>
+
+					<!-- Footer -->
+					<div class="card-footer myCardFooter">
+						<nav>
+							<ul class="pagination justify-content-center" id="ulPhanTrang">
+
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- The Modal -->
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content">
+
+				<header class="head-form mb-0">
+					<h2 id="header-title">Log In</h2>
+				</header>
+
+				<!-- Modal Header -->
+				<!-- 	<div class="modal-header">
+					<h4 class="modal-title" id="modal-title">Modal Heading</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div> -->
+
+				<!-- Modal body -->
+				<div class="modal-body">
+
+					<form role="form" id="formProduct" class="form-modal">
+
+						<div class="form-group">
+							<div class="input-group">
+								<!-- <div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-user"></i></span>
+								</div> -->
+								<input type="text" name="name" id="name" class="form-control input-sm"
+									placeholder="Tên sản phẩm">
+							</div>
+							<span class="sp-thongbao" id="tbName"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<!-- <div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-envelope"></i></span>
+								</div> -->
+								<input type="number" name="price" id="price" class="form-control input-sm"
+									placeholder="Giá">
+							</div>
+							<span class="sp-thongbao" id="tbPrice"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<!-- <div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-key"></i></span>
+								</div> -->
+								<input type="text" name="screen" id="screen" class="form-control input-sm"
+									placeholder="Thông tin màn hình">
+							</div>
+							<span class="sp-thongbao" id="tbScreen"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<!-- <div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-calendar"></i></span>
+								</div> -->
+								<input type="text" name="backCamera" id="backCamera" class="form-control"
+									placeholder="Camera sau">
+							</div>
+
+							<span class="sp-thongbao" id="tbBackCamera"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<!-- <div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
+								</div> -->
+								<input type="text" name="frontCamera" id="frontCamera" class="form-control input-sm"
+									placeholder="Camera trước">
+							</div>
+							<span class="sp-thongbao" id="tbFrontCamera"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<input type="text" name="img" id="img" class="form-control input-sm"
+									placeholder="Link ảnh">
+							</div>
+							<span class="sp-thongbao" id="tbImg"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<!-- <div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
+								</div> -->
+								<textarea class="form-control w-100" name="desc" id="desc" rows="3"
+									placeholder="Chú thích sản phẩm"></textarea>
+							</div>
+							<span class="sp-thongbao" id="tbDesc"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<!-- <div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+								</div> -->
+								<select class="form-control" id="type" name="type">
+									<option value="">Chọn phân loại</option>
+									<option value="Samsung">Samsung</option>
+									<option value="Iphone">Iphone</option>
+								</select>
+							</div>
+
+							<span class="sp-thongbao" id="tbType"></span>
+						</div>
+					</form>
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer" id="modal-footer">
+					<button id="btnInsertSubmit" type="button" class="btn btn-success">Thêm</button>
+					<button id="btnUpdateSubmit" type="button" class="btn btn-success">Cập nhật</button>
+					<button id="btnClose" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap -->
+	<script src="../asset/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../asset/js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="../asset/js/popper.min.js"></script>
+	<script type="text/javascript" src="../asset/js/bootstrap.min.js"></script>
+
+	<!-- Date Picker -->
+	<!-- <script src="js/jquery-ui.min.js"></script> -->
+	<script src="../asset/js/jquery-ui.js"></script>
+	<script src="../asset/js/datepicker.js"></script>
+	<script src="../asset/js/moment.js"></script>
+	<!-- Wow -->
+	<!-- <script src="js/wow.min.js"></script>	
+	<script>
+		new WOW().init();
+	</script>  -->
+
+	<!-- <script src="js/modal.js"></script> -->
+
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#sidebarCollapse').on('click', function () {
+				$('#sidebar').toggleClass('active');
+			});
+		});
+	</script>
+
+	<!-- Axios -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+		integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script type="module" src="../controller/main.js"></script>
+</body>
+
+</html>
