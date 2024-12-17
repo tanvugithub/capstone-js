@@ -12,6 +12,21 @@ const validation = new Validation();
 //Bắt sự kiện click vô sort bất kỳ
 const sortDivs = document.querySelectorAll(".sortDiv");
 
+const renderLoading = () => {
+    let htmlContent = "";
+    htmlContent += `
+         <tr>
+            <td colspan='6' class="text-red-500 font-bold">
+                <div class="flex justify-center">
+                    <img src="../asset/img/loading.gif" width="50" />
+                </div>
+                
+            </td>
+         </tr>`;
+    document.getElementById("tableList").innerHTML = htmlContent;
+
+}
+
 const renderTable = (data, status) => {
     let htmlContent = '';
 
@@ -116,6 +131,8 @@ const renderTable = (data, status) => {
 // Get List Product | sort | filter search | pagination
 const getList = async ({ sortKey = 'updatedAt', sortValue = 'desc', filter = '', limit = 5, page = 1 } = {}) => {
     try {
+        renderLoading();
+
         const resTotal = await productServices.getTotalAPI(filter);
 
         const res = await productServices.getListAPI(sortKey, sortValue, filter, limit, page);
